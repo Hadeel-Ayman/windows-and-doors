@@ -15,7 +15,7 @@ const GetAllLayotes = () => {
 
     const fetchLayouts = async (page) => {
         try {
-            const { data } = await axios.get(`http://localhost:8000/api/v1/Layout`, {
+            const { data } = await axios.get(`https://api.wintecpvc.com/api/v1/Layout`, {
                 params: {
                     page,
                 },
@@ -44,7 +44,7 @@ const GetAllLayotes = () => {
 
     useEffect(() => {
         fetchLayouts(currentPage);
-        axios.get("http://localhost:8000/api/v1/OpeningSystem")
+        axios.get("https://api.wintecpvc.com/api/v1/OpeningSystem")
             .then(response => setProfileOptions(response.data.data))
             .catch(error => toast.error("Error fetching profiles: " + error.message));
 
@@ -52,7 +52,7 @@ const GetAllLayotes = () => {
 
     const handleDelete = async (LayoutId) => {
         try {
-            await axios.delete(`http://localhost:8000/api/v1/Layout/${LayoutId}`, {
+            await axios.delete(`https://api.wintecpvc.com/api/v1/Layout/${LayoutId}`, {
                 withCredentials: false,
             });
             toast.success("Layout deleted successfully");
@@ -81,7 +81,7 @@ const GetAllLayotes = () => {
                 formData.append("image", editLayout.image);
             }
 
-            await axios.put(`http://localhost:8000/api/v1/Layout/${LayoutId}`, editLayout, {
+            await axios.put(`https://api.wintecpvc.com/api/v1/Layout/${LayoutId}`, editLayout, {
                 withCredentials: false,
                 headers: {
                     "Content-Type": "multipart/form-data",

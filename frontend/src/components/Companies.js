@@ -15,7 +15,7 @@ const Companies = () => {
 
   const fetchCompanies = async () => {
     try {
-      const { data } = await axios.get(`http://localhost:8000/api/v1/Company`, {
+      const { data } = await axios.get(`https://api.wintecpvc.com/api/v1/Company`, {
         withCredentials: false,
       });
       if (data.results > 0) {
@@ -30,7 +30,7 @@ const Companies = () => {
 
   useEffect(() => {
     fetchCompanies();
-    axios.get("http://localhost:8000/api/v1/Material")
+    axios.get("https://api.wintecpvc.com/api/v1/Material")
       .then(response => setallMateriales(response.data.data))
       .catch(error => toast.error("Error fetching profiles: " + error.message));
   }, [currentPage]);
@@ -48,7 +48,7 @@ const Companies = () => {
 
   const handleDelete = async (companyId) => {
     try {
-      await axios.delete(`http://localhost:8000/api/v1/Company/${companyId}`, {
+      await axios.delete(`https://api.wintecpvc.com/api/v1/Company/${companyId}`, {
         withCredentials: false,
       });
       toast.success("Company deleted successfully");
@@ -80,7 +80,7 @@ const Companies = () => {
         formData.append("image", editCompany.image);
       }
 
-      await axios.put(`http://localhost:8000/api/v1/Company/${companyId}`, formData, {
+      await axios.put(`https://api.wintecpvc.com/api/v1/Company/${companyId}`, formData, {
         withCredentials: false,
         headers: {
           "Content-Type": "multipart/form-data",

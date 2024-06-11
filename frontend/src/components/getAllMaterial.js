@@ -15,7 +15,7 @@ const GetAllMaterials = () => {
 
     const fetchMaterials = async () => {
         try {
-            const { data } = await axios.get(`http://localhost:8000/api/v1/Material`, {
+            const { data } = await axios.get(`https://api.wintecpvc.com/api/v1/Material`, {
                 withCredentials: false,
             });
             if (data.results > 0) {
@@ -34,7 +34,7 @@ const GetAllMaterials = () => {
 
     const handleDelete = async (materialId) => {
         try {
-            await axios.delete(`http://localhost:8000/api/v1/Material/${materialId}`, {
+            await axios.delete(`https://api.wintecpvc.com/api/v1/Material/${materialId}`, {
                 withCredentials: false,
             });
             toast.success("Material deleted successfully");
@@ -81,7 +81,7 @@ const GetAllMaterials = () => {
                 formData.append("from", editMaterial.from);
             }
 
-            await axios.put(`http://localhost:8000/api/v1/Material/${materialId}`, formData, {
+            await axios.put(`https://api.wintecpvc.com/api/v1/Material/${materialId}`, formData, {
                 withCredentials: false,
                 headers: {
                     "Content-Type": "multipart/form-data",

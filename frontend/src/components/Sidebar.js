@@ -37,7 +37,7 @@ const Sidebar = () => {
 
     try {
       localStorage.removeItem("authToken");
-      const res = await axios.get("http://localhost:8000/api/v1/Auth/logout");
+      const res = await axios.get("https://api.wintecpvc.com/api/v1/Auth/logout");
       toast.success(res.data.message);
       setIsAuthenticated(false);
       navigateTo("/loginAdmin");

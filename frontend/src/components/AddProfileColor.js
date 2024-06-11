@@ -25,7 +25,7 @@ const AddProfileColor = () => {
             formData.append("image", image);
 
             const res = await axios.post(
-                "http://localhost:8000/api/v1/ProfileColor",
+                "https://api.wintecpvc.com/api/v1/ProfileColor",
                 formData,
                 {
                     withCredentials: false,

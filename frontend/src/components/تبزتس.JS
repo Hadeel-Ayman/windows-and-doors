@@ -23,7 +23,7 @@ const GetFloatingMullion = () => {
 
     const fetchFloatingMullions = async (page) => {
         try {
-            const { data } = await axios.get(`http://localhost:8000/api/v1/FloatingMullion`, {
+            const { data } = await axios.get(`https://api.wintecpvc.com/api/v1/FloatingMullion`, {
                 params: {
                     page,
                 },
@@ -53,10 +53,10 @@ const GetFloatingMullion = () => {
 
     useEffect(() => {
         fetchFloatingMullions(currentPage);
-        axios.get("http://localhost:8000/api/v1/Profile")
+        axios.get("https://api.wintecpvc.com/api/v1/Profile")
             .then(response => setProfileOptions(response.data.data))
             .catch(error => toast.error("Error fetching profiles: " + error.message));
-        axios.get("http://localhost:8000/api/v1/Frame")
+        axios.get("https://api.wintecpvc.com/api/v1/Frame")
             .then(response => setFrameOptions(response.data.data))
             .catch(error => toast.error("Error fetching frames: " + error.message));
     }, [currentPage]);
@@ -77,7 +77,7 @@ const GetFloatingMullion = () => {
 
     const handleDelete = async (FloatingMullionId) => {
         try {
-            await axios.delete(`http://localhost:8000/api/v1/FloatingMullion/${FloatingMullionId}`, {
+            await axios.delete(`https://api.wintecpvc.com/api/v1/FloatingMullion/${FloatingMullionId}`, {
                 withCredentials: false,
             });
             toast.success("FloatingMullion deleted successfully");
@@ -98,7 +98,7 @@ const GetFloatingMullion = () => {
 
     const handleUpdate = async (FloatingMullionId) => {
         try {
-            await axios.put(`http://localhost:8000/api/v1/FloatingMullion/${FloatingMullionId}`, editFloatingMullion, {
+            await axios.put(`https://api.wintecpvc.com/api/v1/FloatingMullion/${FloatingMullionId}`, editFloatingMullion, {
                 withCredentials: false,
             });
             setFloatingMullions(FloatingMullions.map(m => m._id === FloatingMullionId ? editFloatingMullion : m));

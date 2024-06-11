@@ -26,7 +26,7 @@ const AddProfile = () => {
 
   const fetchCompanies = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/api/v1/Company");
+      const response = await axios.get("https://api.wintecpvc.com/api/v1/Company");
       setCompanies(response.data.data || []);
     } catch (error) {
       toast.error("Failed to fetch companies");
@@ -35,7 +35,7 @@ const AddProfile = () => {
 
   const fetchMaterials = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/api/v1/Material");
+      const response = await axios.get("https://api.wintecpvc.com/api/v1/Material");
       setMaterials(response.data.data || []);
     } catch (error) {
       toast.error("Failed to fetch materials");
@@ -44,7 +44,7 @@ const AddProfile = () => {
 
   const fetchColors = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/api/v1/ProfileColor");
+      const response = await axios.get("https://api.wintecpvc.com/api/v1/ProfileColor");
       setColors(response.data.data || []);
     } catch (error) {
       toast.error("Failed to fetch profile colors");
@@ -63,7 +63,7 @@ const AddProfile = () => {
     if (company) {
       const fetchSystemsByCompany = async () => {
         try {
-          const response = await axios.get(`http://localhost:8000/api/v1/OpeningSystem?company=${company}`);
+          const response = await axios.get(`https://api.wintecpvc.com/api/v1/OpeningSystem?company=${company}`);
           setSystems(response.data.data || []);
         } catch (error) {
           toast.error("Failed to fetch opening systems");
@@ -80,7 +80,7 @@ const AddProfile = () => {
     if (material) {
       const fetchCompaniesByMaterial = async () => {
         try {
-          const response = await axios.get(`http://localhost:8000/api/v1/Company?material=${material}`);
+          const response = await axios.get(`https://api.wintecpvc.com/api/v1/Company?material=${material}`);
           setCompanies(response.data.data || []);
         } catch (error) {
           toast.error("Failed to fetch companies");
@@ -112,7 +112,7 @@ const AddProfile = () => {
       formData.append("surcharge", surcharge);
 
       const res = await axios.post(
-        "http://localhost:8000/api/v1/Profile",
+        "https://api.wintecpvc.com/api/v1/Profile",
         formData,
         {
           withCredentials: false,

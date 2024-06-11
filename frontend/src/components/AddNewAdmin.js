@@ -32,7 +32,7 @@ const AddNewAdmin = () => {
     try {
       await axios
         .post(
-          "http://localhost:8000/api/v1/User/addNewAdmin",
+          "https://api.wintecpvc.com/api/v1/User/addNewAdmin",
           { first_name, email, telephone, password, country, last_name, state, city, street, area, role: adminRole }, // استخدم adminRole هنا
           {
             withCredentials: false,

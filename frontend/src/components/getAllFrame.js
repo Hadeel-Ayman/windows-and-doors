@@ -16,7 +16,7 @@ const GetAllFrames = () => {
 
     const fetchFrames = async (page) => {
         try {
-            const { data } = await axios.get(`http://localhost:8000/api/v1/Frame`, {
+            const { data } = await axios.get(`https://api.wintecpvc.com/api/v1/Frame`, {
                 params: {
                     page,
                 },
@@ -44,14 +44,14 @@ const GetAllFrames = () => {
 
     useEffect(() => {
         fetchFrames(currentPage);
-        axios.get("http://localhost:8000/api/v1/Profile")
+        axios.get("https://api.wintecpvc.com/api/v1/Profile")
             .then(response => setProfileOptions(response.data.data))
             .catch(error => toast.error("Error fetching profiles: " + error.message));
     }, [currentPage]);
 
     const handleDelete = async (FrameId) => {
         try {
-            await axios.delete(`http://localhost:8000/api/v1/Frame/${FrameId}`, {
+            await axios.delete(`https://api.wintecpvc.com/api/v1/Frame/${FrameId}`, {
                 withCredentials: false,
             });
             toast.success("Frame deleted successfully");
@@ -90,7 +90,7 @@ const GetAllFrames = () => {
                 formData.append("image", editFrame.image);
             }
 
-            await axios.put(`http://localhost:8000/api/v1/Frame/${FrameId}`, editFrame, {
+            await axios.put(`https://api.wintecpvc.com/api/v1/Frame/${FrameId}`, editFrame, {
                 withCredentials: false,
                 headers: {
                     "Content-Type": "multipart/form-data",

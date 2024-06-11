@@ -13,7 +13,7 @@ const GetTypeOfunites = () => {
 
     const fetchTypeOfUnits = async () => {
         try {
-            const { data } = await axios.get(`http://localhost:8000/api/v1/TypeOfUnit`, {
+            const { data } = await axios.get(`https://api.wintecpvc.com/api/v1/TypeOfUnit`, {
                 withCredentials: false,
             });
             if (data.results > 0) {
@@ -32,7 +32,7 @@ const GetTypeOfunites = () => {
 
     const handleDelete = async (TypeOfUnitId) => {
         try {
-            await axios.delete(`http://localhost:8000/api/v1/TypeOfUnit/${TypeOfUnitId}`, {
+            await axios.delete(`https://api.wintecpvc.com/api/v1/TypeOfUnit/${TypeOfUnitId}`, {
                 withCredentials: false,
             });
             toast.success("TypeOfUnit deleted successfully");
@@ -48,7 +48,7 @@ const GetTypeOfunites = () => {
 
     const handleUpdate = async (TypeOfUnitId) => {
         try {
-            await axios.put(`http://localhost:8000/api/v1/TypeOfUnit/${TypeOfUnitId}`, editTypeOfUnit, {
+            await axios.put(`https://api.wintecpvc.com/api/v1/TypeOfUnit/${TypeOfUnitId}`, editTypeOfUnit, {
                 withCredentials: false,
             });
             setTypeOfUnits(TypeOfUnits.map(m => m._id === TypeOfUnitId ? editTypeOfUnit : m));

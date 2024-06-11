@@ -16,7 +16,7 @@ const GetAllOpeningLayoutes = () => {
 
     const fetchOpeningLayout = async (page) => {
         try {
-            const { data } = await axios.get(`http://localhost:8000/api/v1/OpeningLayout`, {
+            const { data } = await axios.get(`https://api.wintecpvc.com/api/v1/OpeningLayout`, {
                 params: { page, limit: 15 },
                 withCredentials: false,
             });
@@ -32,7 +32,7 @@ const GetAllOpeningLayoutes = () => {
 
     const fetchFanlightsByLayout = async (layoutId) => {
         try {
-            const { data } = await axios.get(`http://localhost:8000/api/v1/Fanlight?layout=${layoutId}`);
+            const { data } = await axios.get(`https://api.wintecpvc.com/api/v1/Fanlight?layout=${layoutId}`);
             setProfileOptions(data.data);
         } catch (error) {
             toast.error("Error fetching fanlights: " + error.message);
@@ -41,14 +41,14 @@ const GetAllOpeningLayoutes = () => {
 
     useEffect(() => {
         fetchOpeningLayout(currentPage);
-        axios.get("http://localhost:8000/api/v1/Layout")
+        axios.get("https://api.wintecpvc.com/api/v1/Layout")
             .then(response => setLayoutOptions(response.data.data))
             .catch(error => toast.error("Error fetching layouts: " + error.message));
     }, [currentPage]);
 
     const handleDelete = async (OpeningLayoutId) => {
         try {
-            await axios.delete(`http://localhost:8000/api/v1/OpeningLayout/${OpeningLayoutId}`, {
+            await axios.delete(`https://api.wintecpvc.com/api/v1/OpeningLayout/${OpeningLayoutId}`, {
                 withCredentials: false,
             });
             toast.success("OpeningLayout deleted successfully");
@@ -78,7 +78,7 @@ const GetAllOpeningLayoutes = () => {
                 formData.append("image", editOpeningLayout.image);
             }
 
-            await axios.put(`http://localhost:8000/api/v1/OpeningLayout/${OpeningLayoutId}`, formData, {
+            await axios.put(`https://api.wintecpvc.com/api/v1/OpeningLayout/${OpeningLayoutId}`, formData, {
                 withCredentials: false,
                 headers: { "Content-Type": "multipart/form-data" },
             });

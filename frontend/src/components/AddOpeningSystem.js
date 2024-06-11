@@ -18,7 +18,7 @@ const AddOpeningSystem = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const companyRes = await axios.get("http://localhost:8000/api/v1/Company");
+                const companyRes = await axios.get("https://api.wintecpvc.com/api/v1/Company");
                 setCompanies(companyRes.data.data || []);  
             } catch (error) {
                 toast.error("Failed to fetch companies");
@@ -65,7 +65,7 @@ const AddOpeningSystem = () => {
             formData.append("company", companyId); // استخدم التسمية الصحيحة
 
             const res = await axios.post(
-                "http://localhost:8000/api/v1/OpeningSystem",
+                "https://api.wintecpvc.com/api/v1/OpeningSystem",
                 formData,
                 {
                     withCredentials: false,

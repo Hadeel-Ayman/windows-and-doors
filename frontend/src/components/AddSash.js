@@ -25,8 +25,8 @@ const AddSash = () => {
         const fetchData = async () => {
             try {
                 const [profileRes, framesRes] = await Promise.all([
-                    axios.get("http://localhost:8000/api/v1/Profile"),
-                    axios.get("http://localhost:8000/api/v1/Frame")
+                    axios.get("https://api.wintecpvc.com/api/v1/Profile"),
+                    axios.get("https://api.wintecpvc.com/api/v1/Frame")
                 ]);
                 if (profileRes.data && profileRes.data.data) {
                     setProfiles(profileRes.data.data);
@@ -73,7 +73,7 @@ const AddSash = () => {
             formData.append("profile", profile);
 
             const res = await axios.post(
-                "http://localhost:8000/api/v1/Sash",
+                "https://api.wintecpvc.com/api/v1/Sash",
                 formData,
                 {
                     withCredentials: false,

@@ -19,7 +19,7 @@ const AddCuttingProcess = () => {
         // Fetch profiles when component mounts
         const fetchProfiles = async () => {
             try {
-                const response = await axios.get("http://localhost:8000/api/v1/Profile");
+                const response = await axios.get("https://api.wintecpvc.com/api/v1/Profile");
                 setProfiles(response.data.data);
             } catch (error) {
                 console.error("Error fetching profiles:", error);
@@ -40,7 +40,7 @@ const AddCuttingProcess = () => {
             }
 
             const res = await axios.post(
-                "http://localhost:8000/api/v1/CuttingProcess",
+                "https://api.wintecpvc.com/api/v1/CuttingProcess",
                 { thickenss, Welding_time, profile: profileId },
                 {
                     withCredentials: false,

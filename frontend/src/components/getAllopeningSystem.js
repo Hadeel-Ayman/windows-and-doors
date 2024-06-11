@@ -16,7 +16,7 @@ const GetAllOpeningSystem = () => {
 
     const fetchOpeningSystem = async () => {
         try {
-            const { data } = await axios.get(`http://localhost:8000/api/v1/OpeningSystem`, {
+            const { data } = await axios.get(`https://api.wintecpvc.com/api/v1/OpeningSystem`, {
                 withCredentials: false,
             });
             if (data.results > 0) {
@@ -31,14 +31,14 @@ const GetAllOpeningSystem = () => {
 
     useEffect(() => {
         fetchOpeningSystem();
-        axios.get("http://localhost:8000/api/v1/Company")
+        axios.get("https://api.wintecpvc.com/api/v1/Company")
             .then(response => setCompanyOptions(response.data.data))
             .catch(error => toast.error("Error fetching profiles: " + error.message));
     }, [currentPage]);
 
     const handleDelete = async (OpeningSystemId) => {
         try {
-            await axios.delete(`http://localhost:8000/api/v1/OpeningSystem/${OpeningSystemId}`, {
+            await axios.delete(`https://api.wintecpvc.com/api/v1/OpeningSystem/${OpeningSystemId}`, {
                 withCredentials: false,
             });
             toast.success("OpeningSystem deleted successfully");
@@ -68,7 +68,7 @@ const GetAllOpeningSystem = () => {
                 formData.append("previewImage", editOpeningSystem.previewImage);
             }
 
-            await axios.put(`http://localhost:8000/api/v1/OpeningSystem/${ProfileColorId}`, formData, {
+            await axios.put(`https://api.wintecpvc.com/api/v1/OpeningSystem/${ProfileColorId}`, formData, {
                 withCredentials: false,
                 headers: {
                     "Content-Type": "multipart/form-data",

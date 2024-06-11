@@ -20,7 +20,7 @@ const GetAllMullions = () => {
     const itemsPerPage = 3; // عدد العناصر لكل صفحة
     const fetchMullions = async () => {
         try {
-            const { data } = await axios.get(`http://localhost:8000/api/v1/Mullion`, {
+            const { data } = await axios.get(`https://api.wintecpvc.com/api/v1/Mullion`, {
                 params: {
                     page: currentPage,
                     limit: itemsPerPage,
@@ -54,10 +54,10 @@ const GetAllMullions = () => {
 
     useEffect(() => {
         fetchMullions();
-        axios.get("http://localhost:8000/api/v1/Profile")
+        axios.get("https://api.wintecpvc.com/api/v1/Profile")
             .then(response => setProfileOptions(response.data.data))
             .catch(error => toast.error("Error fetching profiles: " + error.message));
-        axios.get("http://localhost:8000/api/v1/Frame")
+        axios.get("https://api.wintecpvc.com/api/v1/Frame")
             .then(response => setFrameOptions(response.data.data))
             .catch(error => toast.error("Error fetching frames: " + error.message));
     });
@@ -79,7 +79,7 @@ const GetAllMullions = () => {
 
     const handleDelete = async (MullionId) => {
         try {
-            await axios.delete(`http://localhost:8000/api/v1/Mullion/${MullionId}`, {
+            await axios.delete(`https://api.wintecpvc.com/api/v1/Mullion/${MullionId}`, {
                 withCredentials: false,
             });
             toast.success("Mullion deleted successfully");
@@ -106,7 +106,7 @@ const GetAllMullions = () => {
 
     const handleUpdate = async (MullionId) => {
         try {
-            await axios.put(`http://localhost:8000/api/v1/Mullion/${MullionId}`, editMullion, {
+            await axios.put(`https://api.wintecpvc.com/api/v1/Mullion/${MullionId}`, editMullion, {
                 withCredentials: false,
             });
             setMullions(Mullions.map(m => m._id === MullionId ? editMullion : m));

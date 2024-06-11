@@ -16,7 +16,7 @@ const Admins = () => {
 
   const fetchAdmins = async (page) => {
     try {
-      const { data } = await axios.get(`http://localhost:8000/api/v1/User/getAllAdmins`, {
+      const { data } = await axios.get(`https://api.wintecpvc.com/api/v1/User/getAllAdmins`, {
         params: {
           page,
           limit: itemsPerPage,
@@ -37,7 +37,7 @@ const Admins = () => {
 
   const handleDelete = async (adminId) => {
     try {
-      await axios.delete(`http://localhost:8000/api/v1/User/${adminId}`, {
+      await axios.delete(`https://api.wintecpvc.com/api/v1/User/${adminId}`, {
         withCredentials: false,
       });
       toast.success("Admin deleted successfully");
@@ -61,7 +61,7 @@ const Admins = () => {
   const handleUpdate = async (adminId) => {
     try {
       const updatedAdmin = editAdmins[adminId];
-      await axios.put(`http://localhost:8000/api/v1/User/${adminId}`, updatedAdmin, {
+      await axios.put(`https://api.wintecpvc.com/api/v1/User/${adminId}`, updatedAdmin, {
         withCredentials: false,
       });
       setAdmins(admins.map(admin => admin._id === adminId ? updatedAdmin : admin));

@@ -23,7 +23,7 @@ const AddNewMullion = () => {
     useEffect(() => {
         const fetchProfiles = async () => {
             try {
-                const res = await axios.get("http://localhost:8000/api/v1/Profile");
+                const res = await axios.get("https://api.wintecpvc.com/api/v1/Profile");
                 setProfiles(res.data.data); // Set the entire profiles array
             } catch (error) {
                 toast.error("Failed to fetch profiles");
@@ -36,7 +36,7 @@ const AddNewMullion = () => {
     useEffect(() => {
         const fetchFrames = async () => {
             try {
-                const res = await axios.get("http://localhost:8000/api/v1/Frame");
+                const res = await axios.get("https://api.wintecpvc.com/api/v1/Frame");
                 setFrames(res.data.data);
             } catch (error) {
                 toast.error("Failed to fetch frames");
@@ -62,7 +62,7 @@ const AddNewMullion = () => {
             const price_beam = parseFloat(pricePermeter) * lengthOfBeam;
 
             const res = await axios.post(
-                "http://localhost:8000/api/v1/Mullion",
+                "https://api.wintecpvc.com/api/v1/Mullion",
                 {
                     name,
                     code,

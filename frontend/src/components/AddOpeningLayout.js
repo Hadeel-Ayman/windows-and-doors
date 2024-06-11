@@ -20,7 +20,7 @@ const AddOpeningLayout = () => {
         const fetchData = async () => {
             try {
                 const [layoutsRes] = await Promise.all([
-                    axios.get("http://localhost:8000/api/v1/Layout")
+                    axios.get("https://api.wintecpvc.com/api/v1/Layout")
                 ]);
                 if (layoutsRes.data && layoutsRes.data.data) {
                     setLayouts(layoutsRes.data.data);
@@ -37,7 +37,7 @@ const AddOpeningLayout = () => {
         const fetchFanlights = async () => {
             if (layoutId) {
                 try {
-                    const res = await axios.get(`http://localhost:8000/api/v1/Fanlight?layout=${layoutId}`);
+                    const res = await axios.get(`https://api.wintecpvc.com/api/v1/Fanlight?layout=${layoutId}`);
                     if (res.data && res.data.data) {
                         setFanlights(res.data.data);
                         setFanlightDisabled(false);
@@ -70,7 +70,7 @@ const AddOpeningLayout = () => {
             formData.append("layout", layoutId);
 
             const res = await axios.post(
-                "http://localhost:8000/api/v1/OpeningLayout",
+                "https://api.wintecpvc.com/api/v1/OpeningLayout",
                 formData,
                 {
                     withCredentials: false,

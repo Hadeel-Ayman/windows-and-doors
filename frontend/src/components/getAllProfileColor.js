@@ -13,7 +13,7 @@ const GetAllProfileColor = () => {
 
     const fetchProfileColors = async () => {
         try {
-            const { data } = await axios.get(`http://localhost:8000/api/v1/ProfileColor`, {
+            const { data } = await axios.get(`https://api.wintecpvc.com/api/v1/ProfileColor`, {
                 withCredentials: false,
             });
             if (data.results > 0) {
@@ -32,7 +32,7 @@ const GetAllProfileColor = () => {
 
     const handleDelete = async (ProfileColorId) => {
         try {
-            await axios.delete(`http://localhost:8000/api/v1/ProfileColor/${ProfileColorId}`, {
+            await axios.delete(`https://api.wintecpvc.com/api/v1/ProfileColor/${ProfileColorId}`, {
                 withCredentials: false,
             });
             toast.success("ProfileColor deleted successfully");
@@ -76,7 +76,7 @@ const GetAllProfileColor = () => {
                 formData.append("previewImage", editProfileColor.previewImage);
             }
 
-            await axios.put(`http://localhost:8000/api/v1/ProfileColor/${ProfileColorId}`, formData, {
+            await axios.put(`https://api.wintecpvc.com/api/v1/ProfileColor/${ProfileColorId}`, formData, {
                 withCredentials: false,
                 headers: {
                     "Content-Type": "multipart/form-data",

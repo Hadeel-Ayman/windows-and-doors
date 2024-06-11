@@ -19,7 +19,7 @@ const GetAllProfiles = () => {
 
     const fetchProfiles = async (page) => {
         try {
-            const { data } = await axios.get(`http://localhost:8000/api/v1/Profile`, {
+            const { data } = await axios.get(`https://api.wintecpvc.com/api/v1/Profile`, {
                 params: {
                     page,
                     // limit: 5,
@@ -47,16 +47,16 @@ const GetAllProfiles = () => {
     };
     useEffect(() => {
         fetchProfiles(currentPage);
-        axios.get("http://localhost:8000/api/v1/Company")
+        axios.get("https://api.wintecpvc.com/api/v1/Company")
             .then(response => setProfileOptions(response.data.data))
             .catch(error => toast.error("Error fetching profiles: " + error.message));
-        axios.get("http://localhost:8000/api/v1/OpeningSystem")
+        axios.get("https://api.wintecpvc.com/api/v1/OpeningSystem")
             .then(response => setSystemOptions(response.data.data))
             .catch(error => toast.error("Error fetching profiles: " + error.message));
-        axios.get("http://localhost:8000/api/v1/Material")
+        axios.get("https://api.wintecpvc.com/api/v1/Material")
             .then(response => setMaterialOptions(response.data.data))
             .catch(error => toast.error("Error fetching profiles: " + error.message));
-        axios.get("http://localhost:8000/api/v1/ProfileColor")
+        axios.get("https://api.wintecpvc.com/api/v1/ProfileColor")
             .then(response => setColorsOptions(response.data.data))
             .catch(error => toast.error("Error fetching profiles: " + error.message));
 
@@ -64,7 +64,7 @@ const GetAllProfiles = () => {
 
     const handleDelete = async (ProfileId) => {
         try {
-            await axios.delete(`http://localhost:8000/api/v1/Profile/${ProfileId}`, {
+            await axios.delete(`https://api.wintecpvc.com/api/v1/Profile/${ProfileId}`, {
                 withCredentials: false,
             });
             toast.success("Profile deleted successfully");
@@ -75,7 +75,7 @@ const GetAllProfiles = () => {
     };
     const fetchFanlightsByLayout = async (layoutId) => {
         try {
-            const { data } = await axios.get(`http://localhost:8000/api/v1/Company?material=${layoutId}`);
+            const { data } = await axios.get(`https://api.wintecpvc.com/api/v1/Company?material=${layoutId}`);
             setProfileOptions(data.data);
         } catch (error) {
             toast.error("Error fetching fanlights: " + error.message);
@@ -83,7 +83,7 @@ const GetAllProfiles = () => {
     };
     const fetchFanlightsByompany = async (layoutId) => {
         try {
-            const { data } = await axios.get(`http://localhost:8000/api/v1/OpeningSystem?company=${layoutId}`);
+            const { data } = await axios.get(`https://api.wintecpvc.com/api/v1/OpeningSystem?company=${layoutId}`);
             setSystemOptions(data.data);
         } catch (error) {
             toast.error("Error fetching fanlights: " + error.message);
@@ -122,7 +122,7 @@ const GetAllProfiles = () => {
                 formData.append("image", editProfile.image);
             }
 
-            await axios.put(`http://localhost:8000/api/v1/Profile/${ProfileColorId}`, formData, {
+            await axios.put(`https://api.wintecpvc.com/api/v1/Profile/${ProfileColorId}`, formData, {
                 withCredentials: false,
                 headers: {
                     "Content-Type": "multipart/form-data",

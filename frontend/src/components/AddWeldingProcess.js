@@ -33,7 +33,7 @@
 //     const [profiles, setProfiles] = useState([]);
 
 //     useEffect(() => {
-//         axios.get("http://localhost:8000/api/v1/Profile")
+//         axios.get("https://api.wintecpvc.com/api/v1/Profile")
 //             .then(response => {
 //                 setProfileOptions(response.data.data);
 //             })
@@ -55,7 +55,7 @@
 //                 return;
 //             }
 //             const res = await axios.post(
-//                 "http://localhost:8000/api/v1/WeldingProcess",
+//                 "https://api.wintecpvc.com/api/v1/WeldingProcess",
 //                 { Welding_Allowance, Welding_time, profiles },
 //                 {
 //                     withCredentials: false,
@@ -169,7 +169,7 @@ const AddWeldingProcess = () => {
     const [profiles, setProfiles] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:8000/api/v1/Profile")
+        axios.get("https://api.wintecpvc.com/api/v1/Profile")
             .then(response => {
                 setProfileOptions(response.data.data);
             })
@@ -198,7 +198,7 @@ const AddWeldingProcess = () => {
             }).filter(id => id !== null);
 
             const res = await axios.post(
-                "http://localhost:8000/api/v1/WeldingProcess",
+                "https://api.wintecpvc.com/api/v1/WeldingProcess",
                 { Welding_Allowance, Welding_time, profiles: profileIds },
                 {
                     withCredentials: false,

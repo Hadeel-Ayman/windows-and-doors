@@ -21,7 +21,7 @@ const AddGlass = () => {
   useEffect(() => {
     const fetchGlassColors = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/api/v1/GlassColor");
+        const response = await axios.get("https://api.wintecpvc.com/api/v1/GlassColor");
         setGlassColors(response.data.data);
       } catch (error) {
         toast.error(error.response.data.message);
@@ -46,7 +46,7 @@ const AddGlass = () => {
       }
 
       const res = await axios.post(
-        "http://localhost:8000/api/v1/Glass",
+        "https://api.wintecpvc.com/api/v1/Glass",
         { name, thickness, specification, code, glass_density, weightPermeterSqure, pricePermeterSqure, glassColorIds: selectedGlassColors },
         {
           withCredentials: false,

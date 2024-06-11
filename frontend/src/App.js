@@ -67,7 +67,7 @@ const App = () => {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:8000/api/v1/User/getAdminDetails",
+          "https://api.wintecpvc.com/api/v1/User/getAdminDetails",
           {
             headers: {
               'Authorization': `Bearer ${token}`, // تضمين التوكن في الهيدر

@@ -15,7 +15,7 @@ const GetAllCuttingProcess = () => {
 
     const fetchCuttingProcesss = async (page) => {
         try {
-            const { data } = await axios.get(`http://localhost:8000/api/v1/CuttingProcess`, {
+            const { data } = await axios.get(`https://api.wintecpvc.com/api/v1/CuttingProcess`, {
                 params: {
                     page,
                 },
@@ -33,14 +33,14 @@ const GetAllCuttingProcess = () => {
 
     useEffect(() => {
         fetchCuttingProcesss(currentPage);
-        axios.get("http://localhost:8000/api/v1/Profile")
+        axios.get("https://api.wintecpvc.com/api/v1/Profile")
             .then(response => setProfileOptions(response.data.data))
             .catch(error => toast.error("Error fetching Profile: " + error.message));
     }, [currentPage]);
 
     const handleDelete = async (CuttingProcessId) => {
         try {
-            await axios.delete(`http://localhost:8000/api/v1/CuttingProcess/${CuttingProcessId}`, {
+            await axios.delete(`https://api.wintecpvc.com/api/v1/CuttingProcess/${CuttingProcessId}`, {
                 withCredentials: false,
             });
             toast.success("CuttingProcess deleted successfully");
@@ -67,7 +67,7 @@ const GetAllCuttingProcess = () => {
 
     const handleUpdate = async (CuttingProcessId) => {
         try {
-            await axios.put(`http://localhost:8000/api/v1/CuttingProcess/${CuttingProcessId}`, editCuttingProcess, {
+            await axios.put(`https://api.wintecpvc.com/api/v1/CuttingProcess/${CuttingProcessId}`, editCuttingProcess, {
                 withCredentials: false,
             });
             setCuttingProcesss(CuttingProcesss.map(m => m._id === CuttingProcessId ? editCuttingProcess : m));

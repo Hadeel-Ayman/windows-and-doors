@@ -25,7 +25,7 @@ const AddFloatingMullion = () => {
     useEffect(() => {
         const fetchLengthOfBeams = async () => {
             try {
-                const response = await axios.get("http://localhost:8000/api/v1/Frame");
+                const response = await axios.get("https://api.wintecpvc.com/api/v1/Frame");
                 setLengthOfBeams(response.data.data);
             } catch (error) {
                 console.error("Error fetching length of beams:", error);
@@ -35,7 +35,7 @@ const AddFloatingMullion = () => {
 
         const fetchProfiles = async () => {
             try {
-                const response = await axios.get("http://localhost:8000/api/v1/Profile");
+                const response = await axios.get("https://api.wintecpvc.com/api/v1/Profile");
                 setProfiles(response.data.data);
             } catch (error) {
                 console.error("Error fetching profiles:", error);
@@ -56,7 +56,7 @@ const AddFloatingMullion = () => {
     //         }
 
     //         const res = await axios.post(
-    //             "http://localhost:8000/api/v1/FloatingMullion",
+    //             "https://api.wintecpvc.com/api/v1/FloatingMullion",
     //             { name, code, Length_of_Beam: lengthOfBeamId, weightPermeter, pricePermeter, profile: profileId },
     //             {
     //                 withCredentials: false,
@@ -96,7 +96,7 @@ const AddFloatingMullion = () => {
             const price_beam = parseFloat(pricePermeter) * lengthOfBeam;
     
             const res = await axios.post(
-                "http://localhost:8000/api/v1/FloatingMullion",
+                "https://api.wintecpvc.com/api/v1/FloatingMullion",
                 { 
                     name, 
                     code, 

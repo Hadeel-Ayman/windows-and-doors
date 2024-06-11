@@ -28,7 +28,7 @@ const Dashboard = () => {
     const fetchAdminDetails = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:8000/api/v1/User/getAdminDetails`
+          `https://api.wintecpvc.com/api/v1/User/getAdminDetails`
         );
         setAdminDetails(res.data.user);
         // console.log(res.data.user);
@@ -41,14 +41,14 @@ const Dashboard = () => {
     const fetchData = async () => {
       try {
         const [companiesRes, materialRes, glassRes, frameRes, MullionRes, OpeningSystemRes, sashRes, OpeningLayoutRes] = await Promise.all([
-          axios.get(`http://localhost:8000/api/v1/Company`),
-          axios.get(`http://localhost:8000/api/v1/Material`),
-          axios.get(`http://localhost:8000/api/v1/Glass`),
-          axios.get(`http://localhost:8000/api/v1/Frame`),
-          axios.get(`http://localhost:8000/api/v1/Mullion`),
-          axios.get(`http://localhost:8000/api/v1/OpeningSystem`),
-          axios.get(`http://localhost:8000/api/v1/Sash`),
-          axios.get(`http://localhost:8000/api/v1/OpeningLayout`),
+          axios.get(`https://api.wintecpvc.com/api/v1/Company`),
+          axios.get(`https://api.wintecpvc.com/api/v1/Material`),
+          axios.get(`https://api.wintecpvc.com/api/v1/Glass`),
+          axios.get(`https://api.wintecpvc.com/api/v1/Frame`),
+          axios.get(`https://api.wintecpvc.com/api/v1/Mullion`),
+          axios.get(`https://api.wintecpvc.com/api/v1/OpeningSystem`),
+          axios.get(`https://api.wintecpvc.com/api/v1/Sash`),
+          axios.get(`https://api.wintecpvc.com/api/v1/OpeningLayout`),
         ]);
         countUp(companiesRes.data.results, materialRes.data.results, glassRes.data.results, frameRes.data.results, MullionRes.data.results, OpeningSystemRes.data.results, sashRes.data.results, OpeningLayoutRes.data.results);
 

@@ -15,7 +15,7 @@ const GetAllGlass = () => {
 
     const fetchGlasses = async (page) => {
         try {
-            const { data } = await axios.get(`http://localhost:8000/api/v1/Glass`, {
+            const { data } = await axios.get(`https://api.wintecpvc.com/api/v1/Glass`, {
                 params: {
                     page,
                 },
@@ -40,14 +40,14 @@ const GetAllGlass = () => {
 
     useEffect(() => {
         fetchGlasses(currentPage);
-        axios.get("http://localhost:8000/api/v1/GlassColor")
+        axios.get("https://api.wintecpvc.com/api/v1/GlassColor")
             .then(response => setProfileOptions(response.data.data))
             .catch(error => toast.error("Error fetching profiles: " + error.message));
     }, [currentPage]);
 
     const handleDelete = async (glassId) => {
         try {
-            await axios.delete(`http://localhost:8000/api/v1/Glass/${glassId}`, {
+            await axios.delete(`https://api.wintecpvc.com/api/v1/Glass/${glassId}`, {
                 withCredentials: false,
             });
             toast.success("Glass deleted successfully");
@@ -66,7 +66,7 @@ const GetAllGlass = () => {
 
     const handleUpdate = async (glassId) => {
         try {
-            await axios.put(`http://localhost:8000/api/v1/Glass/${glassId}`, editGlass, {
+            await axios.put(`https://api.wintecpvc.com/api/v1/Glass/${glassId}`, editGlass, {
                 withCredentials: false,
             });
             setGlasses(glasses.map(glass => glass._id === glassId ? editGlass : glass));

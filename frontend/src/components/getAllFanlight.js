@@ -17,7 +17,7 @@ const GetAllFanligthes = () => {
 
     const fetchFanligth = async () => {
         try {
-            const { data } = await axios.get(`http://localhost:8000/api/v1/Fanlight`, {
+            const { data } = await axios.get(`https://api.wintecpvc.com/api/v1/Fanlight`, {
                 withCredentials: false,
             });
             setFanligth(data.data);
@@ -39,14 +39,14 @@ const GetAllFanligthes = () => {
 
     useEffect(() => {
         fetchFanligth();
-        axios.get("http://localhost:8000/api/v1/Layout")
+        axios.get("https://api.wintecpvc.com/api/v1/Layout")
             .then(response => setProfileOptions(response.data.data))
             .catch(error => toast.error("Error fetching profiles: " + error.message));
     }, []);
 
     const handleDelete = async (FanlightId) => {
         try {
-            await axios.delete(`http://localhost:8000/api/v1/Fanlight/${FanlightId}`, {
+            await axios.delete(`https://api.wintecpvc.com/api/v1/Fanlight/${FanlightId}`, {
                 withCredentials: false,
             });
             toast.success("Fanlight deleted successfully");
@@ -74,7 +74,7 @@ const GetAllFanligthes = () => {
                 formData.append("image", editFanlight.image);
             }
 
-            await axios.put(`http://localhost:8000/api/v1/Fanlight/${FanlightId}`, formData, {
+            await axios.put(`https://api.wintecpvc.com/api/v1/Fanlight/${FanlightId}`, formData, {
                 withCredentials: false,
                 headers: {
                     'Content-Type': 'multipart/form-data'

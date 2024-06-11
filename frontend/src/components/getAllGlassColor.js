@@ -13,7 +13,7 @@ const GetAllGlassColor = () => {
 
     const fetchGlassColors = async (page) => {
         try {
-            const { data } = await axios.get(`http://localhost:8000/api/v1/GlassColor`, {
+            const { data } = await axios.get(`https://api.wintecpvc.com/api/v1/GlassColor`, {
                 params: {
                     page,
                 },
@@ -35,7 +35,7 @@ const GetAllGlassColor = () => {
 
     const handleDelete = async (GlassColorId) => {
         try {
-            await axios.delete(`http://localhost:8000/api/v1/GlassColor/${GlassColorId}`, {
+            await axios.delete(`https://api.wintecpvc.com/api/v1/GlassColor/${GlassColorId}`, {
                 withCredentials: false,
             });
             toast.success("GlassColor deleted successfully");
@@ -63,7 +63,7 @@ const GetAllGlassColor = () => {
                 formData.append("image", editGlassColor.image);
             }
 
-            await axios.put(`http://localhost:8000/api/v1/GlassColor/${GlassColorId}`, editGlassColor, {
+            await axios.put(`https://api.wintecpvc.com/api/v1/GlassColor/${GlassColorId}`, editGlassColor, {
                 withCredentials: false,
                 headers: {
                     "Content-Type": "multipart/form-data",

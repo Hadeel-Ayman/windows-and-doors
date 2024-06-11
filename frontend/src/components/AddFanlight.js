@@ -19,7 +19,7 @@ const AddFanlight = () => {
     useEffect(() => {
         const fetchLayouts = async () => {
             try {
-                const response = await axios.get("http://localhost:8000/api/v1/Layout");
+                const response = await axios.get("https://api.wintecpvc.com/api/v1/Layout");
                 setlayoutes(response.data.data);
             } catch (error) {
                 console.error("Error fetching layoutes:", error);
@@ -44,7 +44,7 @@ const AddFanlight = () => {
             formData.append("layout", layout);
             formData.append("image", image);
 
-            const res = await axios.post("http://localhost:8000/api/v1/Fanlight",
+            const res = await axios.post("https://api.wintecpvc.com/api/v1/Fanlight",
                 formData,
                 {
                     withCredentials: false,

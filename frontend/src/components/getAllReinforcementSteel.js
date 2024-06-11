@@ -35,7 +35,7 @@ const GetAllReinforcementSteel = () => {
 
     const fetchReinforcementsteels = async (page) => {
         try {
-            const { data } = await axios.get(`http://localhost:8000/api/v1/Reinforcementsteel`, {
+            const { data } = await axios.get(`https://api.wintecpvc.com/api/v1/Reinforcementsteel`, {
                 params: {
                     page,
                 },
@@ -56,10 +56,10 @@ const GetAllReinforcementSteel = () => {
             try {
                 fetchReinforcementsteels(currentPage);
                 const [sashRes, FrameRes, FloatingMullionRes, MullionRes] = await Promise.all([
-                    axios.get("http://localhost:8000/api/v1/Sash"),
-                    axios.get("http://localhost:8000/api/v1/Frame"),
-                    axios.get("http://localhost:8000/api/v1/FloatingMullion"),
-                    axios.get("http://localhost:8000/api/v1/Mullion")
+                    axios.get("https://api.wintecpvc.com/api/v1/Sash"),
+                    axios.get("https://api.wintecpvc.com/api/v1/Frame"),
+                    axios.get("https://api.wintecpvc.com/api/v1/FloatingMullion"),
+                    axios.get("https://api.wintecpvc.com/api/v1/Mullion")
                 ]);
                 setSashOptions(sashRes.data.data);
                 setFrameOptions(FrameRes.data.data);
@@ -91,7 +91,7 @@ const GetAllReinforcementSteel = () => {
 
     const handleDelete = async (ReinforcementsteelId) => {
         try {
-            await axios.delete(`http://localhost:8000/api/v1/Reinforcementsteel/${ReinforcementsteelId}`, {
+            await axios.delete(`https://api.wintecpvc.com/api/v1/Reinforcementsteel/${ReinforcementsteelId}`, {
                 withCredentials: false,
             });
             toast.success("Reinforcementsteel deleted successfully");
@@ -125,7 +125,7 @@ const GetAllReinforcementSteel = () => {
         }
 
         try {
-            await axios.put(`http://localhost:8000/api/v1/Reinforcementsteel/${ReinforcementsteelId}`, updatedReinforcementsteel, {
+            await axios.put(`https://api.wintecpvc.com/api/v1/Reinforcementsteel/${ReinforcementsteelId}`, updatedReinforcementsteel, {
                 withCredentials: false,
             });
             setReinforcementsteels(Reinforcementsteels.map(m => m._id === ReinforcementsteelId ? updatedReinforcementsteel : m));

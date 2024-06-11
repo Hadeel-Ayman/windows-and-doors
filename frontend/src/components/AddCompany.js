@@ -18,7 +18,7 @@ const AddCompany = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const materialRes = await axios.get("http://localhost:8000/api/v1/Material");
+        const materialRes = await axios.get("https://api.wintecpvc.com/api/v1/Material");
         setMaterials(materialRes.data.data || []);
       } catch (error) {
         toast.error("Failed to fetch materials");
@@ -43,7 +43,7 @@ const AddCompany = () => {
       formData.append("material", materialId); // استخدم التسمية الصحيحة
 
       const res = await axios.post(
-        "http://localhost:8000/api/v1/Company",
+        "https://api.wintecpvc.com/api/v1/Company",
         formData,
         {
           withCredentials: false,

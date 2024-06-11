@@ -26,7 +26,7 @@ const AddMaterial = () => {
       formData.append("from", from); // إرسال معرف الشركة
 
       const res = await axios.post(
-        "http://localhost:8000/api/v1/Material",
+        "https://api.wintecpvc.com/api/v1/Material",
         formData
       );
 

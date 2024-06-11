@@ -26,7 +26,7 @@ const AddGlassColor = () => {
             formData.append("plus", plus);
 
             const res = await axios.post(
-                "http://localhost:8000/api/v1/GlassColor",
+                "https://api.wintecpvc.com/api/v1/GlassColor",
                 formData,
                 {
                     withCredentials: false,

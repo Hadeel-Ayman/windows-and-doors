@@ -31,7 +31,7 @@ const GetWeldingProcess = () => {
 
     const fetchWeldingProcesss = async (page) => {
         try {
-            const { data } = await axios.get(`http://localhost:8000/api/v1/WeldingProcess`, {
+            const { data } = await axios.get(`https://api.wintecpvc.com/api/v1/WeldingProcess`, {
                 params: { page },
                 withCredentials: false,
             });
@@ -47,14 +47,14 @@ const GetWeldingProcess = () => {
 
     useEffect(() => {
         fetchWeldingProcesss(currentPage);
-        axios.get("http://localhost:8000/api/v1/Profile")
+        axios.get("https://api.wintecpvc.com/api/v1/Profile")
             .then(response => setProfileOptions(response.data.data))
             .catch(error => toast.error("Error fetching profiles: " + error.message));
     }, [currentPage]);
 
     const handleDelete = async (WeldingProcessId) => {
         try {
-            await axios.delete(`http://localhost:8000/api/v1/WeldingProcess/${WeldingProcessId}`, { withCredentials: false });
+            await axios.delete(`https://api.wintecpvc.com/api/v1/WeldingProcess/${WeldingProcessId}`, { withCredentials: false });
             toast.success("WeldingProcess deleted successfully");
             fetchWeldingProcesss(currentPage);
         } catch (error) {
@@ -77,7 +77,7 @@ const GetWeldingProcess = () => {
                 return profile ? profile._id : null;
             }).filter(id => id !== null);
 
-            await axios.put(`http://localhost:8000/api/v1/WeldingProcess/${WeldingProcessId}`, 
+            await axios.put(`https://api.wintecpvc.com/api/v1/WeldingProcess/${WeldingProcessId}`, 
                 { ...editWeldingProcess, profiles: profileIds },
                 { withCredentials: false }
             );

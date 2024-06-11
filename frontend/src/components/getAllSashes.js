@@ -33,7 +33,7 @@ const GetAllSash = () => {
 
     const fetchSashs = async (page) => {
         try {
-            const { data } = await axios.get(`http://localhost:8000/api/v1/Sash`, {
+            const { data } = await axios.get(`https://api.wintecpvc.com/api/v1/Sash`, {
                 params: {
                     page,
                 },
@@ -51,10 +51,10 @@ const GetAllSash = () => {
 
     useEffect(() => {
         fetchSashs(currentPage);
-        axios.get("http://localhost:8000/api/v1/Profile")
+        axios.get("https://api.wintecpvc.com/api/v1/Profile")
             .then(response => setProfileOptions(response.data.data))
             .catch(error => toast.error("Error fetching profiles: " + error.message));
-        axios.get("http://localhost:8000/api/v1/Frame")
+        axios.get("https://api.wintecpvc.com/api/v1/Frame")
             .then(response => setFramesOptions(response.data.data))
             .catch(error => toast.error("Error fetching profiles: " + error.message));
     }, [currentPage]);
@@ -76,7 +76,7 @@ const GetAllSash = () => {
 
     const handleDelete = async (SashId) => {
         try {
-            await axios.delete(`http://localhost:8000/api/v1/Sash/${SashId}`, {
+            await axios.delete(`https://api.wintecpvc.com/api/v1/Sash/${SashId}`, {
                 withCredentials: false,
             });
             toast.success("Sash deleted successfully");
@@ -110,7 +110,7 @@ const GetAllSash = () => {
                 formData.append("image", editSash.image);
             }
 
-            await axios.put(`http://localhost:8000/api/v1/Sash/${SashId}`, editSash, {
+            await axios.put(`https://api.wintecpvc.com/api/v1/Sash/${SashId}`, editSash, {
                 withCredentials: false,
                 headers: {
                     "Content-Type": "multipart/form-data",

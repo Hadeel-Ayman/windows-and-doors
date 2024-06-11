@@ -19,7 +19,7 @@ const AddLayout = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const systemsRes = await axios.get("http://localhost:8000/api/v1/OpeningSystem");
+                const systemsRes = await axios.get("https://api.wintecpvc.com/api/v1/OpeningSystem");
                 setSystems(systemsRes.data.data || []);
                 } 
              catch (error) {
@@ -45,7 +45,7 @@ const AddLayout = () => {
             formData.append("openingSystem", openingSystemId);
 
             const res = await axios.post(
-                "http://localhost:8000/api/v1/Layout",
+                "https://api.wintecpvc.com/api/v1/Layout",
                 formData,
                 {
                     withCredentials: false,

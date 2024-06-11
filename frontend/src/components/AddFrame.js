@@ -28,7 +28,7 @@
 //   useEffect(() => {
 //     const fetchData = async () => {
 //       try {
-//         const profileRes = await axios.get("http://localhost:8000/api/v1/Profile");
+//         const profileRes = await axios.get("https://api.wintecpvc.com/api/v1/Profile");
 //         setProfileies(profileRes.data.data || []);
 //       } catch (error) {
 //         toast.error("Failed to fetch profiles");
@@ -68,7 +68,7 @@
 //       formData.append("price_beam", price_beam);
 
 //       const res = await axios.post(
-//         "http://localhost:8000/api/v1/Frame",
+//         "https://api.wintecpvc.com/api/v1/Frame",
 //         { formData },
 //         {
 //           withCredentials: false,
@@ -258,7 +258,7 @@
 //   useEffect(() => {
 //     const fetchData = async () => {
 //       try {
-//         const profileRes = await axios.get("http://localhost:8000/api/v1/Profile");
+//         const profileRes = await axios.get("https://api.wintecpvc.com/api/v1/Profile");
 //         setProfileies(profileRes.data.data || []);
 //       } catch (error) {
 //         toast.error("Failed to fetch profiles");
@@ -297,7 +297,7 @@
 //       formData.append("priceBeam", priceBeam); // إضافة الحقل الجديد إلى البيانات المرسلة
 
 //       const res = await axios.post(
-//         "http://localhost:8000/api/v1/Frame",
+//         "https://api.wintecpvc.com/api/v1/Frame",
 //         { formData },
 //         {
 //           withCredentials: false,
@@ -487,7 +487,7 @@ const AddFrame = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const profileRes = await axios.get("http://localhost:8000/api/v1/Profile");
+        const profileRes = await axios.get("https://api.wintecpvc.com/api/v1/Profile");
         setProfileies(profileRes.data.data || []);
       } catch (error) {
         toast.error("Failed to fetch profiles");
@@ -525,7 +525,7 @@ const AddFrame = () => {
       formData.append("price_beam", price_beam);
 
       const res = await axios.post(
-        "http://localhost:8000/api/v1/Frame",
+        "https://api.wintecpvc.com/api/v1/Frame",
         formData,
         {
           withCredentials: false,

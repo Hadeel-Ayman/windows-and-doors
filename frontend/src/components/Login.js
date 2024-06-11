@@ -17,7 +17,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/v1/Auth/loginAdmin",
+        "https://api.wintecpvc.com/api/v1/Auth/loginAdmin",
         { email, password, role },
         {
           headers: { "Content-Type": "application/json" },

@@ -15,7 +15,7 @@ export const ContextProvider = ({ children }) => {
     if (token) {
       const fetchUser = async () => {
         try {
-          const res = await axios.get('http://localhost:8000/api/v1/User/getAdminDetails', {
+          const res = await axios.get('https://api.wintecpvc.com/api/v1/User/getAdminDetails', {
             headers: {
               'Authorization': `Bearer ${token}`,
               'Content-Type': 'application/json'

@@ -29,10 +29,10 @@ const AddReinforcementsteel = () => {
         const fetchData = async () => {
             try {
                 const [SashRes, framesRes, FloatingMullionRes, MullionRes] = await Promise.all([
-                    axios.get("http://localhost:8000/api/v1/Sash"),
-                    axios.get("http://localhost:8000/api/v1/Frame"),
-                    axios.get("http://localhost:8000/api/v1/FloatingMullion"),
-                    axios.get("http://localhost:8000/api/v1/Mullion"),
+                    axios.get("https://api.wintecpvc.com/api/v1/Sash"),
+                    axios.get("https://api.wintecpvc.com/api/v1/Frame"),
+                    axios.get("https://api.wintecpvc.com/api/v1/FloatingMullion"),
+                    axios.get("https://api.wintecpvc.com/api/v1/Mullion"),
                 ]);
                 if (SashRes.data && SashRes.data.data) {
                     setSash(SashRes.data.data);
@@ -74,7 +74,7 @@ const AddReinforcementsteel = () => {
             const price_beam = parseFloat(pricePermeter) * lengthOfBeam;
     
             const res = await axios.post(
-                "http://localhost:8000/api/v1/Reinforcementsteel",
+                "https://api.wintecpvc.com/api/v1/Reinforcementsteel",
                 {
                     name, code, thickness, weightPermeter, pricePermeter,
                     sash: sashId, frame: FrameId, floatingMullion: FloatingMullionId, mullion: MullionId, price_beam

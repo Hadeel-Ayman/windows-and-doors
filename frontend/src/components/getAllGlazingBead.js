@@ -21,7 +21,7 @@ const GetAllGlazingBead = () => {
 
     const fetchGlazingBeads = async (page) => {
         try {
-            const { data } = await axios.get(`http://localhost:8000/api/v1/GlazingBead`, {
+            const { data } = await axios.get(`https://api.wintecpvc.com/api/v1/GlazingBead`, {
                 params: { page },
                 withCredentials: false,
             });
@@ -37,10 +37,10 @@ const GetAllGlazingBead = () => {
 
     useEffect(() => {
         fetchGlazingBeads(currentPage);
-        axios.get("http://localhost:8000/api/v1/Profile")
+        axios.get("https://api.wintecpvc.com/api/v1/Profile")
             .then(response => setProfileOptions(response.data.data))
             .catch(error => toast.error("Error fetching profiles: " + error.message));
-        axios.get("http://localhost:8000/api/v1/Frame")
+        axios.get("https://api.wintecpvc.com/api/v1/Frame")
             .then(response => setFrameOptions(response.data.data))
             .catch(error => toast.error("Error fetching frames: " + error.message));
 
@@ -62,7 +62,7 @@ const GetAllGlazingBead = () => {
 
     const handleDelete = async (GlazingBeadId) => {
         try {
-            await axios.delete(`http://localhost:8000/api/v1/GlazingBead/${GlazingBeadId}`, {
+            await axios.delete(`https://api.wintecpvc.com/api/v1/GlazingBead/${GlazingBeadId}`, {
                 withCredentials: false,
             });
             toast.success("GlazingBead deleted successfully");
@@ -100,7 +100,7 @@ const GetAllGlazingBead = () => {
 
     const handleUpdate = async (GlazingBeadId) => {
         try {
-            await axios.put(`http://localhost:8000/api/v1/GlazingBead/${GlazingBeadId}`, editGlazingBead, {
+            await axios.put(`https://api.wintecpvc.com/api/v1/GlazingBead/${GlazingBeadId}`, editGlazingBead, {
                 withCredentials: false,
             });
             setGlazingBeads(GlazingBeads.map(m => m._id === GlazingBeadId ? editGlazingBead : m));

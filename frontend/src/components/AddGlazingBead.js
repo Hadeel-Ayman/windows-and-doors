@@ -23,7 +23,7 @@ const AddGlazingBead = () => {
     useEffect(() => {
         const fetchProfiles = async () => {
             try {
-                const res = await axios.get("http://localhost:8000/api/v1/Profile");
+                const res = await axios.get("https://api.wintecpvc.com/api/v1/Profile");
                 setProfiles(res.data.data); // Set the entire profiles array
             } catch (error) {
                 toast.error("Failed to fetch profiles");
@@ -36,7 +36,7 @@ const AddGlazingBead = () => {
     useEffect(() => {
         const fetchFrames = async () => {
             try {
-                const res = await axios.get("http://localhost:8000/api/v1/Frame");
+                const res = await axios.get("https://api.wintecpvc.com/api/v1/Frame");
                 setFrames(res.data.data);
             } catch (error) {
                 toast.error("Failed to fetch frames");
@@ -77,7 +77,7 @@ const AddGlazingBead = () => {
 
             // Send the request to add the glazing bead
             const res = await axios.post(
-                "http://localhost:8000/api/v1/GlazingBead",
+                "https://api.wintecpvc.com/api/v1/GlazingBead",
                 {
                     name,
                     code,
